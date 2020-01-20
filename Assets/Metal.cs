@@ -7,17 +7,16 @@ public class Metal : MonoBehaviour
 
     Rigidbody metalRb;
     GameObject[] magnets;
-    public float magneticForceConstant = 1f;
 
     private void Start()
     {
         metalRb = GetComponent<Rigidbody>();
-        GetMagnets();
+        magnets = Utility.Instance.GetMagnets();
     }
 
-    void GetMagnets()
+    void Update()
     {
-        magnets = GameObject.FindGameObjectsWithTag(Utility.DraggableTag);
+        magnets = Utility.Instance.GetMagnets();
     }
 
     private void FixedUpdate()
@@ -27,21 +26,10 @@ public class Metal : MonoBehaviour
         {
             float distance = Vector3.Distance(transform.position, magnet.transform.position);
             Vector3 direction = magnet.transform.position - transform.position;
-            Vector2 magneticForce = CalculateMagneticForce(distance, direction);
+            Vector2 magneticForce = Utility.Instance.CalculateMagneticForce(distance, direction);
             metalRb.AddForce(magneticForce.x, 0, magneticForce.y, ForceMode.Force);
         }
 
     }
-
-    Vector2 CalculateMagneticForce(float distance, Vector3 direction)
-    {
-        return new Vector2(MagneticForceCalculateHelper(distance, direction.x), MagneticForceCalculateHelper(distance, direction.z));
-    }
-
-    float MagneticForceCalculateHelper(float distance, float direction)
-    {
-        return direction * magneticForceConstant / Mathf.Pow(distance, 2);
-    }
-
 
 }

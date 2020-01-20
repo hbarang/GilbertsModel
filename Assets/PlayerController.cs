@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        layerMask = LayerMask.GetMask(Utility.DragTargetsLayer);
+        layerMask = LayerMask.GetMask(Utility.Instance.DragTargetsLayer);
     }
     private void Update()
     {
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out hit, layerMask))
             {
 
-                if (hit.collider.CompareTag(Utility.DraggableTag))
+                if (hit.collider.CompareTag(Utility.Instance.DraggableTag))
                 {
                     draggedObject = hit.collider.attachedRigidbody;
                 }
