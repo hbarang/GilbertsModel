@@ -6,23 +6,17 @@ public class Metal : MonoBehaviour
 {
 
     Rigidbody metalRb;
-    GameObject[] magnets;
 
     private void Start()
     {
         metalRb = GetComponent<Rigidbody>();
-        magnets = Utility.Instance.GetMagnets();
     }
 
-    void Update()
-    {
-        magnets = Utility.Instance.GetMagnets();
-    }
 
     private void FixedUpdate()
     {
 
-        foreach (GameObject magnet in magnets)
+        foreach (GameObject magnet in GameController.Instance.magnets)
         {
             float distance = Vector3.Distance(transform.position, magnet.transform.position);
             Vector3 direction = magnet.transform.position - transform.position;

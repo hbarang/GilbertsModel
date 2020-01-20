@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed;
-    Vector2 screenDragStartPosition;
+
     Rigidbody draggedObject = null;
     int layerMask;
 
@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     {
         layerMask = LayerMask.GetMask(Utility.Instance.DragTargetsLayer);
     }
+
     private void Update()
     {
         if (Input.touchSupported)
@@ -86,4 +87,5 @@ public class PlayerController : MonoBehaviour
             draggedObject.AddForce(differenceVector.x, 0f, differenceVector.y, ForceMode.Force);
         }
     }
+    
 }

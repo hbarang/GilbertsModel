@@ -15,6 +15,7 @@ public class BorderController : MonoBehaviour
         Boundaries.Instance.OnScreenBoundsChangeEvent += AdjustPosition;
 
     }
+    
     void AdjustPosition()
     {
 

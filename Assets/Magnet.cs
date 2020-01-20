@@ -6,28 +6,19 @@ public class Magnet : MonoBehaviour
 {
 
     public Polarization polarization;
-    GameObject[] magnets;
-    GameObject[] metals;
+
     Rigidbody magnetRb;
-    
+
     void Start()
     {
         magnetRb = GetComponent<Rigidbody>();
-        magnets = Utility.Instance.GetMagnets();
-        metals = Utility.Instance.GetMetals();
         ChangeColor();
-    }
-
-    void Update()
-    {
-        magnets = Utility.Instance.GetMagnets();
-        metals = Utility.Instance.GetMetals();
     }
 
     void FixedUpdate()
     {
 
-        foreach (GameObject metal in metals)
+        foreach (GameObject metal in GameController.Instance.metals)
         {
             float distance = Vector3.Distance(transform.position, metal.transform.position);
             Vector3 direction = metal.transform.position - transform.position;
@@ -35,7 +26,7 @@ public class Magnet : MonoBehaviour
             magnetRb.AddForce(magneticForce.x, 0, magneticForce.y, ForceMode.Force);
         }
 
-        foreach (GameObject magnetGameObject in magnets)
+        foreach (GameObject magnetGameObject in GameController.Instance.magnets)
         {
             Magnet magnet;
             if (magnetGameObject.TryGetComponent(out magnet) && magnet != this)
