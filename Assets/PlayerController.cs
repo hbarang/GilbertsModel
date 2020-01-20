@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        layerMask = LayerMask.GetMask("DragTargets");
+        layerMask = LayerMask.GetMask(Utility.DragTargetsLayer);
     }
     private void Update()
     {
@@ -23,8 +23,8 @@ public class PlayerController : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, layerMask))
             {
-                Debug.Log(hit.collider.tag);
-                if (hit.collider.CompareTag("Draggable"))
+
+                if (hit.collider.CompareTag(Utility.DraggableTag))
                 {
                     draggedObject = hit.collider.attachedRigidbody;
                 }
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
             if (targetMousePosition.x != draggedObject.transform.position.x && targetMousePosition.z != draggedObject.transform.position.z)
             {
-                Vector2 differenceVector = new Vector2(targetMousePosition.x - draggedObject.transform.position.x, targetMousePosition.z - draggedObject.transform.position.z).normalized*movementSpeed;
+                Vector2 differenceVector = new Vector2(targetMousePosition.x - draggedObject.transform.position.x, targetMousePosition.z - draggedObject.transform.position.z).normalized * movementSpeed;
                 draggedObject.AddForce(differenceVector.x, 0f, differenceVector.y, ForceMode.Force);
             }
         }
