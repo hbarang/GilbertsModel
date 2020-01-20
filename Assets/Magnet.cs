@@ -9,15 +9,13 @@ public class Magnet : MonoBehaviour
     GameObject[] magnets;
     GameObject[] metals;
     Rigidbody magnetRb;
-    MeshRenderer magnetMesh;
+    
     void Start()
     {
         magnetRb = GetComponent<Rigidbody>();
         magnets = Utility.Instance.GetMagnets();
         metals = Utility.Instance.GetMetals();
-        magnetMesh = GetComponent<MeshRenderer>();
-        magnetMesh.material.color = polarization == Polarization.Negative ? Color.blue : Color.red;
-
+        ChangeColor();
     }
 
     void Update()
@@ -26,10 +24,9 @@ public class Magnet : MonoBehaviour
         metals = Utility.Instance.GetMetals();
     }
 
-    // Update is called once per frame
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        
+
         foreach (GameObject metal in metals)
         {
             float distance = Vector3.Distance(transform.position, metal.transform.position);
@@ -45,12 +42,18 @@ public class Magnet : MonoBehaviour
             {
                 float distance = Vector3.Distance(transform.position, magnetGameObject.transform.position);
                 Vector3 direction = (magnet.polarization != polarization ? 1 : -1) * (magnetGameObject.transform.position - transform.position);
-                Vector2 magneticForce = Utility.Instance.CalculateMagneticForce(distance, direction)*magnetRb.mass;
+                Vector2 magneticForce = Utility.Instance.CalculateMagneticForce(distance, direction) * magnetRb.mass;
                 magnetRb.AddForce(magneticForce.x, 0, magneticForce.y, ForceMode.Force);
             }
 
 
         }
+
+    }
+
+    public void ChangeColor()
+    {
+        GetComponent<MeshRenderer>().material.color = polarization == Polarization.Negative ? Color.blue : Color.red;
 
     }
 
