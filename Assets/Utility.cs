@@ -9,6 +9,7 @@ public class Utility : MonoBehaviour
     public string MetalTag = "Metal";
     public float magneticForceConstant;
     public static Utility Instance;
+    
     private void Awake()
     {
 
@@ -22,6 +23,7 @@ public class Utility : MonoBehaviour
         }
 
     }
+
     public Vector2 CalculateMagneticForce(float distance, Vector3 direction)
     {
         return new Vector2(MagneticForceCalculateHelper(distance, direction.x), MagneticForceCalculateHelper(distance, direction.z));

@@ -2,7 +2,8 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
+
+/[Ll]ibrary/*
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
@@ -10,6 +11,9 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 /iOS/
+
+!/Library/LastSceneManagerSetup.txt
+
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
