@@ -223,7 +223,7 @@ RectTransform:
   m_GameObject: {fileID: 88812898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 1182022888}
   m_Father: {fileID: 1860143488}
@@ -231,8 +231,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 60}
+  m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &88812900
 MonoBehaviour:
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 234854425}
   - component: {fileID: 234854426}
   m_Layer: 0
-  m_Name: PolarizationChanger
+  m_Name: PolarizationChangerPositive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,7 +430,7 @@ Transform:
   m_GameObject: {fileID: 234854424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.9, y: 0.1, z: 14.84}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -470,7 +470,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 40}
-  m_SizeDelta: {x: 300, y: 50}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &435054479
 MonoBehaviour:
@@ -520,11 +520,11 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 35.9
+  m_fontSize: 23.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 15
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 257
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.82109356, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 912098497}
   - component: {fileID: 912098496}
   - component: {fileID: 912098495}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BorderS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: 917545492}
   - component: {fileID: 917545491}
   m_Layer: 0
-  m_Name: PolarizationChanger (1)
+  m_Name: PolarizationChangerNegative
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -989,7 +989,7 @@ Transform:
   m_GameObject: {fileID: 917545490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.7, y: 0.1, z: -17.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -1006,7 +1006,7 @@ GameObject:
   - component: {fileID: 920055289}
   - component: {fileID: 920055288}
   - component: {fileID: 920055287}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BorderW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1102,7 +1102,7 @@ GameObject:
   - component: {fileID: 959601708}
   - component: {fileID: 959601707}
   m_Layer: 8
-  m_Name: Cube (1)
+  m_Name: Magnet
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1129,7 +1129,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959601706}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -1158,8 +1158,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959601706}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1306,7 +1306,7 @@ GameObject:
   - component: {fileID: 1050380105}
   - component: {fileID: 1050380104}
   - component: {fileID: 1050380103}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BorderE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1472,11 +1472,11 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
+  m_fontSize: 24.7
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 12
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 514
@@ -1598,8 +1598,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388312467}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1665,7 +1665,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &1448385881
 GameObject:
@@ -1715,7 +1715,7 @@ GameObject:
   - component: {fileID: 1503389585}
   - component: {fileID: 1503389584}
   - component: {fileID: 1503389583}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BorderN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1991,8 +1991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07171c180a7bd04da083ca765a8bfe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  polarizationChangerNegative: {fileID: 234854429}
-  polarizationChangerPositive: {fileID: 0}
+  polarizationChangerNegative: {fileID: 917545495}
+  polarizationChangerPositive: {fileID: 234854429}
 --- !u!1 &1733215635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,7 +2196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 750, y: 1334}
@@ -2404,7 +2404,7 @@ GameObject:
   - component: {fileID: 2091048575}
   - component: {fileID: 2091048576}
   m_Layer: 8
-  m_Name: Cube
+  m_Name: Magnet
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2431,8 +2431,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091048570}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -2492,7 +2492,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091048570}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
