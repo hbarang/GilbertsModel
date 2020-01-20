@@ -5,7 +5,7 @@ using UnityEngine;
 public class Magnet : MonoBehaviour
 {
 
-    public Polarization polarization;
+    public Polarization polarization = Polarization.Positive;
 
     Rigidbody magnetRb;
 
