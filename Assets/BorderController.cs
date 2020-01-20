@@ -35,7 +35,7 @@ public class BorderController : MonoBehaviour
     }
     void HandleVertical(Transform border, bool isNorth)
     {
-        Vector3 newPosition = new Vector3(0, border.position.y, (isNorth ? 1 : -1) * Boundaries.Instance.ScreenBounds.min.y);
+        Vector3 newPosition = new Vector3(0, border.position.y, (isNorth ? 1 : -1) * Boundaries.Instance.ScreenBounds.extents.y);
         border.position = newPosition;
     }
 
