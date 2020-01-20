@@ -15,44 +15,75 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.touchSupported)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Vector3 hitMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit, layerMask))
+            SendRaycastFromInput(Input.touches[0].position);
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
             {
-
-                if (hit.collider.CompareTag(Utility.Instance.DraggableTag))
-                {
-                    draggedObject = hit.collider.attachedRigidbody;
-                }
-
+                SendRaycastFromInput(Input.mousePosition);
             }
         }
+
     }
 
     void FixedUpdate()
     {
 
-
-        if (Input.GetMouseButton(0) && draggedObject != null)
+        if (Input.touchSupported)
         {
-            Vector3 targetMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            if (targetMousePosition.x != draggedObject.transform.position.x && targetMousePosition.z != draggedObject.transform.position.z)
+            if (Input.touchCount > 0)
             {
-                Vector2 differenceVector = new Vector2(targetMousePosition.x - draggedObject.transform.position.x, targetMousePosition.z - draggedObject.transform.position.z).normalized * movementSpeed;
-                draggedObject.AddForce(differenceVector.x, 0f, differenceVector.y, ForceMode.Force);
+                Touch currentTouch = Input.touches[0];
+                if (currentTouch.phase == TouchPhase.Moved && draggedObject != null)
+                {
+                    AddForceFromInput(currentTouch.position);
+                }
+                else if (currentTouch.phase == TouchPhase.Ended)
+                {
+                    draggedObject = null;
+                }
             }
         }
         else
         {
-            draggedObject = null;
+
+            if (Input.GetMouseButton(0) && draggedObject != null)
+            {
+                AddForceFromInput(Input.mousePosition);
+            }
+            else
+            {
+                draggedObject = null;
+            }
         }
 
     }
 
+    void SendRaycastFromInput(Vector3 input)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(input);
+        RaycastHit hit;
+        Vector3 hitMousePosition = Camera.main.ScreenToWorldPoint(input);
 
+        if (Physics.Raycast(ray, out hit, layerMask))
+        {
+
+            draggedObject = hit.collider.attachedRigidbody;
+
+        }
+    }
+
+    void AddForceFromInput(Vector3 input)
+    {
+        Vector3 targetPosition = Camera.main.ScreenToWorldPoint(input);
+
+        if (targetPosition.x != draggedObject.transform.position.x && targetPosition.z != draggedObject.transform.position.z)
+        {
+            Vector2 differenceVector = new Vector2(targetPosition.x - draggedObject.transform.position.x, targetPosition.z - draggedObject.transform.position.z).normalized * draggedObject.mass * movementSpeed *Time.fixedDeltaTime;
+            draggedObject.AddForce(differenceVector.x, 0f, differenceVector.y, ForceMode.Force);
+        }
+    }
 }

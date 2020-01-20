@@ -9,12 +9,15 @@ public class Magnet : MonoBehaviour
     GameObject[] magnets;
     GameObject[] metals;
     Rigidbody magnetRb;
-
+    MeshRenderer magnetMesh;
     void Start()
     {
         magnetRb = GetComponent<Rigidbody>();
         magnets = Utility.Instance.GetMagnets();
         metals = Utility.Instance.GetMetals();
+        magnetMesh = GetComponent<MeshRenderer>();
+        magnetMesh.material.color = polarization == Polarization.Negative ? Color.blue : Color.red;
+
     }
 
     void Update()
