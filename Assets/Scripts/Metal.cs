@@ -7,13 +7,13 @@ public class Metal : MonoBehaviour
 
     Rigidbody metalRb;
 
-    private void Start()
+    void Start()
     {
         metalRb = GetComponent<Rigidbody>();
     }
 
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
 
         foreach (GameObject magnet in GameController.Instance.magnets)

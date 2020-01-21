@@ -17,11 +17,17 @@ public class GameController : MonoBehaviour
     public GameObject objectHolder;
 
     int objectCount = 0;
+
     [SerializeField]
     GameObject metalPrefab;
+
     [SerializeField]
     GameObject magnetPrefab;
     Vector3 instantiatePosition;
+
+    [SerializeField]
+    GameObject wallPrefab;
+    GameObject wallGameObject;
 
     void Awake()
     {
@@ -39,6 +45,11 @@ public class GameController : MonoBehaviour
     {
         instantiatePosition = new Vector3(Boundaries.Instance.ScreenBounds.center.x, 0.2f, Boundaries.Instance.ScreenBounds.center.y);
         Boundaries.Instance.OnScreenBoundsChangeEvent += AdjustPolarizerPosition;
+        Boundaries.Instance.OnScreenBoundsChangeEvent += AdjustWallPosition;
+
+        Vector3 wallPosition = new Vector3(Boundaries.Instance.ScreenBounds.min.x + 2.5f, 0.2f, -Boundaries.Instance.ScreenBounds.extents.y);
+        wallGameObject = Instantiate(wallPrefab, wallPosition, Quaternion.identity);
+
         magnets = Utility.Instance.GetMagnets();
         metals = Utility.Instance.GetMetals();
         AdjustPolarizerPosition();
@@ -52,11 +63,23 @@ public class GameController : MonoBehaviour
             metals = Utility.Instance.GetMetals();
         }
     }
+    
+    void OnDestroy() {
+        Boundaries.Instance.OnScreenBoundsChangeEvent -= AdjustPolarizerPosition;
+        Boundaries.Instance.OnScreenBoundsChangeEvent -= AdjustWallPosition;
+    }
+    
 
     void AdjustPolarizerPosition()
     {
         polarizationChangerNegative.position = new Vector3(Boundaries.Instance.ScreenBounds.max.x, 0.1f, -Boundaries.Instance.ScreenBounds.extents.y);
         polarizationChangerPositive.position = new Vector3(Boundaries.Instance.ScreenBounds.min.x, 0.1f, Boundaries.Instance.ScreenBounds.extents.y);
+    }
+
+    void AdjustWallPosition()
+    {
+        Vector3 wallPosition = new Vector3(Boundaries.Instance.ScreenBounds.min.x + 2.5f, 0.2f, -Boundaries.Instance.ScreenBounds.extents.y);
+        wallGameObject.transform.position = wallPosition;
     }
 
     void AddHelper(ObjectType type)

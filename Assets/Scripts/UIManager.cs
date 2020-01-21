@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
 
     public Slider forceSlider;
+    
     public void RestartGame()
     {
         Scene scene = SceneManager.GetActiveScene();

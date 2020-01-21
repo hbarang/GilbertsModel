@@ -1148,7 +1148,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 87a397740d9e79643a8ed0b7f0e7809e, type: 2}
+  - {fileID: 2100000, guid: 98b017b7e37294a4e9fe10c526997c08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1348,7 +1348,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 87a397740d9e79643a8ed0b7f0e7809e, type: 2}
+  - {fileID: 2100000, guid: 98b017b7e37294a4e9fe10c526997c08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1524,7 +1524,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 87a397740d9e79643a8ed0b7f0e7809e, type: 2}
+  - {fileID: 2100000, guid: 98b017b7e37294a4e9fe10c526997c08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2106,7 +2106,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 87a397740d9e79643a8ed0b7f0e7809e, type: 2}
+  - {fileID: 2100000, guid: 98b017b7e37294a4e9fe10c526997c08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2218,7 +2218,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fe54bdde8fcc9484db963c167ff14a70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2368,6 +2368,8 @@ MonoBehaviour:
   metalPrefab: {fileID: 5462855961634415915, guid: d08e67741696d54418aa4ead4671adaf,
     type: 3}
   magnetPrefab: {fileID: 2816643815414175885, guid: fd54b0c6a00327841b390209fd28c4b8,
+    type: 3}
+  wallPrefab: {fileID: 8058967076458541766, guid: 22969cfd19f10564abfa28ba1dcfb566,
     type: 3}
 --- !u!1 &1733215635
 GameObject:
@@ -2849,11 +2851,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1505863740}
     m_Modifications:
-    - target: {fileID: 5462855961634415915, guid: d08e67741696d54418aa4ead4671adaf,
-        type: 3}
-      propertyPath: m_Name
-      value: Sphere
-      objectReference: {fileID: 0}
     - target: {fileID: 5462855961634415904, guid: d08e67741696d54418aa4ead4671adaf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2908,6 +2905,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5462855961634415915, guid: d08e67741696d54418aa4ead4671adaf,
+        type: 3}
+      propertyPath: m_Name
+      value: Sphere
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d08e67741696d54418aa4ead4671adaf, type: 3}

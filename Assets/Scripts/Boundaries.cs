@@ -29,7 +29,7 @@ public class Boundaries : MonoBehaviour
 
     private float originalCameraAspect;
 
-    private void Awake()
+    void Awake()
     {
 
         if (Instance == null)
@@ -48,7 +48,7 @@ public class Boundaries : MonoBehaviour
     }
 
 
-    private void Update()
+    void Update()
     {
 
         if (originalCameraAspect != Camera.main.aspect)
@@ -61,7 +61,7 @@ public class Boundaries : MonoBehaviour
 
     }
 
-    private Bounds OrthographicBounds()
+    Bounds OrthographicBounds()
     {
         float screenAspect = (float)Screen.width / (float)Screen.height;
         float cameraHeight = Camera.main.orthographicSize * 2;

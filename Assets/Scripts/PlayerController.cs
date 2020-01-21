@@ -9,12 +9,12 @@ public class PlayerController : MonoBehaviour
     Rigidbody draggedObject = null;
     int layerMask;
 
-    private void Start()
+    void Start()
     {
         layerMask = LayerMask.GetMask(Utility.Instance.DragTargetsLayer);
     }
 
-    private void Update()
+    void Update()
     {
         if (Input.touchSupported)
         {
