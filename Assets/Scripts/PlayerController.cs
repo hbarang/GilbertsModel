@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         Vector3 hitMousePosition = Camera.main.ScreenToWorldPoint(input);
 
-        if (Physics.Raycast(ray, out hit, layerMask))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
 
             draggedObject = hit.collider.attachedRigidbody;
@@ -83,9 +83,10 @@ public class PlayerController : MonoBehaviour
 
         if (targetPosition.x != draggedObject.transform.position.x && targetPosition.z != draggedObject.transform.position.z)
         {
-            Vector2 differenceVector = new Vector2(targetPosition.x - draggedObject.transform.position.x, targetPosition.z - draggedObject.transform.position.z).normalized * draggedObject.mass * movementSpeed *Time.fixedDeltaTime;
-            draggedObject.AddForce(differenceVector.x, 0f, differenceVector.y, ForceMode.Force);
+            Vector2 differenceVector = new Vector2(targetPosition.x - draggedObject.transform.position.x, targetPosition.z - draggedObject.transform.position.z).normalized;
+            Vector2 forceVector = differenceVector * draggedObject.mass * movementSpeed * Time.fixedDeltaTime;
+            draggedObject.AddForce(forceVector.x, 0f, forceVector.y, ForceMode.Force);
         }
     }
-    
+
 }
